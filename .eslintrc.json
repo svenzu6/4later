@@ -1,0 +1,6 @@
+{
+    "extends": [
+        "@dvukovic/eslint-config/core",
+        "@dvukovic/eslint-config/react"
+    ]
+}
