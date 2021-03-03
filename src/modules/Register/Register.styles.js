@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// FIXME: DONT USE HARDCODED PREMADE COLORS
 export const RegisterRoot = styled.div`
     height: 100%;
     width: 100%;
@@ -31,7 +32,7 @@ export const Field = styled.input`
     border-radius: 3px;
 `
 
-export const Button = styled.input`
+export const Button = styled.button`
     cursor:pointer;
     padding: 0.5em;
     background: gray;
@@ -40,6 +41,8 @@ export const Button = styled.input`
     color:papayawhip;
     
 `
+
+// FIXME: INDENTATION
 export const RegisterTitle = styled.h1`
 color:papayawhip;
 text-decoration-line:overline;

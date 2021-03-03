@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import styled from 'styled-components'
+import styled from 'styled-components' //fixme: remove unused imports
 
 import {
     Button,
@@ -11,10 +11,14 @@ import {
 } from './Register.styles'
 
 export const Register = () => {
-    const { errors, handleSubmit, register, watch } = useForm()
-    // eslint-disable-next-line no-console
-    const onSubmit = (data) => console.log(data)
+    const { errors, handleSubmit, register, watch } = useForm() // fixme: remove unused variables
 
+    const onSubmit = (data) => {
+        // eslint-disable-next-line no-console
+        console.log(data)
+    }
+
+    // FIXME: WRITE CLEANER PLACEHOLDERS
     return (
         <RegisterRoot>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -40,16 +44,18 @@ export const Register = () => {
                     type="password"
                 />
                 <Field
-                    name="password2"
+                    name="password2" // fixme: usually called repeatPassword / passwordConfirmation
                     placeholder="confirm your password..."
                     ref={register}
                     type="password"
                 />
 
                 <Button
-                    name="submitbtn"
+                    name="submitbtn" // fixme: you prob dont need name here
                     type="submit"
-                />
+                >
+                    Submit
+                </Button>
             </Form>
         </RegisterRoot>
     )
