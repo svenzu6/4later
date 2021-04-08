@@ -1,0 +1,43 @@
+name: Validate
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Restore Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('./package-lock.json') }}
+      - run: npm install
+
+      - name: Lint 
+        run: |
+          npm run lint
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Restore Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('./package-lock.json') }}
+      - run: npm install
+
+      - name: Build
+        run: |
+          npm run build
