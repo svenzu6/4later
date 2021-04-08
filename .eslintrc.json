@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "@dvukovic/eslint-config/core",
+        "@dvukovic/eslint-config/react",
+        "@dvukovic/eslint-config/typescript"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "ignorePatterns": [
+        "**/types.ts"
+    ]
+}
