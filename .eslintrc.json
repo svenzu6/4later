@@ -1,9 +1,0 @@
-{
-    "extends": [
-        "@dvukovic/eslint-config/core",
-        "@dvukovic/eslint-config/react"
-    ],
-    "rules": {
-        "unused-imports/no-unused-imports-ts": "off"
-    }
-}
