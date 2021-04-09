@@ -3,6 +3,8 @@ import {
     TextField,
     Typography,
 } from '@material-ui/core'
+import cuid from 'cuid'
+import firebase from 'firebase'
 import { useFormik } from 'formik'
 import React from 'react'
 import * as Yup from 'yup'
@@ -42,7 +44,24 @@ export const Register: React.FunctionComponent = () => {
             username: '',
         },
         onSubmit: (formValues) => {
-            console.log(formValues)
+            void firebase
+                .auth()
+                .createUserWithEmailAndPassword(formValues.email, formValues.password)
+                .then(() => {
+                    const id = cuid()
+
+                    void firebase
+                        .firestore()
+                        .collection('users')
+                        .doc(id)
+                        .set({
+                            id: id,
+                            username: formValues.username,
+                        })
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         },
         validateOnChange: false,
         validationSchema: ValidationSchema,

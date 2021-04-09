@@ -1,6 +1,9 @@
 import { CssBaseline } from '@material-ui/core'
+import firebase from 'firebase'
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
+
+import { config } from '../../firebase'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -16,6 +19,12 @@ const GlobalStyle = createGlobalStyle`
 
 const App = (props): JSX.Element => {
     const { Component, pageProps } = props
+
+    if (firebase.apps.length) {
+        firebase.app()
+    } else {
+        firebase.initializeApp(config)
+    }
 
     return (
         <>
