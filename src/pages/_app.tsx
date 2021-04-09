@@ -23,7 +23,7 @@ const App = (props): JSX.Element => {
 
     if (firebase.apps.length) {
         firebase.app()
-    } else {
+    } else if (publicRuntimeConfig) {
         firebase.initializeApp({
             apiKey: publicRuntimeConfig.API_KEY ?? '',
             appId: publicRuntimeConfig.APP_ID ?? '',
