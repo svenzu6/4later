@@ -25,12 +25,12 @@ const App = (props): JSX.Element => {
         firebase.app()
     } else {
         firebase.initializeApp({
-            apiKey: publicRuntimeConfig.API_KEY,
-            appId: publicRuntimeConfig.APP_ID,
-            authDomain: publicRuntimeConfig.AUTH_DOMAIN,
-            messagingSenderId: publicRuntimeConfig.MESSAGING_SENDER_ID,
-            projectId: publicRuntimeConfig.PROJECT_ID,
-            storageBucket: publicRuntimeConfig.STORAGE_BUCKET,
+            apiKey: publicRuntimeConfig.API_KEY ?? '',
+            appId: publicRuntimeConfig.APP_ID ?? '',
+            authDomain: publicRuntimeConfig.AUTH_DOMAIN ?? '',
+            messagingSenderId: publicRuntimeConfig.MESSAGING_SENDER_ID ?? '',
+            projectId: publicRuntimeConfig.PROJECT_ID ?? '',
+            storageBucket: publicRuntimeConfig.STORAGE_BUCKET ?? '',
         })
     }
 
