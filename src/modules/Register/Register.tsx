@@ -4,8 +4,9 @@ import {
     Typography,
 } from '@material-ui/core'
 import cuid from 'cuid'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import { useFormik } from 'formik'
+import { useRouter } from 'next/router'
 import React from 'react'
 import * as Yup from 'yup'
 
@@ -31,6 +32,8 @@ const ValidationSchema = Yup.object().shape({
 })
 
 export const Register: React.FunctionComponent = () => {
+    const router = useRouter()
+
     const {
         errors,
         handleChange,
@@ -59,8 +62,8 @@ export const Register: React.FunctionComponent = () => {
                             username: formValues.username,
                         })
                 })
-                .catch((error) => {
-                    console.log(error)
+                .then(() => {
+                    void router.push('/home')
                 })
         },
         validateOnChange: false,
