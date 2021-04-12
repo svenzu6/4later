@@ -63,7 +63,7 @@ export const Register: React.FunctionComponent = () => {
                         })
                 })
                 .then(() => {
-                    void router.push('/home')
+                    void router.push('/dashboard')
                 })
         },
         validateOnChange: false,
