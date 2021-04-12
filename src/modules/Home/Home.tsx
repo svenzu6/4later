@@ -26,7 +26,7 @@ export const Home: React.FunctionComponent = () => {
                     variant="text"
                 >
 
-                    <Link href="/register">
+                    <Link href="/login">
                         <Button>
                             Login
                         </Button>
