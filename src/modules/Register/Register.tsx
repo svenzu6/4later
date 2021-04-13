@@ -73,9 +73,7 @@ export const Register: React.FunctionComponent = () => {
     return (
         <RegisterRoot>
             <RegisterContent elevation={3}>
-                <Typography
-                    variant="h3"
-                >
+                <Typography variant="h3">
                     Sign up
                 </Typography>
                 <RegisterForm onSubmit={handleSubmit}>
