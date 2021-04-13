@@ -15,17 +15,13 @@ export const Home: React.FunctionComponent = () => {
     return (
         <HomeRoot>
             <HomeContent>
-                <Typography
-                    variant="h3"
-                >
+                <Typography variant="h3">
                     Welcome, get started!
                 </Typography>
                 <ButtonGroup
-                    aria-label="text primary button group"
                     color="primary"
                     variant="text"
                 >
-
                     <Link href="/login">
                         <Button>
                             Login
