@@ -9,7 +9,7 @@ const LoginPage: NextPage = () => {
         <>
             <NextHead>
                 <title>
-                    Register
+                    Login
                 </title>
             </NextHead>
             <Login />

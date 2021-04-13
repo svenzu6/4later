@@ -19,7 +19,8 @@ export const LoginContent = styled(Paper)`
 
 export const LoginForm = styled.form`
     display: grid;
-    row-gap: 5px;
+    row-gap: 10px;
     justify-content: center;
     align-items: center;
+    padding: 30px 0;
 `
