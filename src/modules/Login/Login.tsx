@@ -20,9 +20,6 @@ const ValidationSchema = Yup.object().shape({
     email: Yup.string()
         .email('Must be a valid email')
         .required('Required'),
-    password: Yup.string()
-        .min(7, 'Must be at least 7 charaters')
-        .required('Required'),
 })
 
 export const Login: React.FunctionComponent = () => {
@@ -53,24 +50,20 @@ export const Login: React.FunctionComponent = () => {
     return (
         <LoginRoot>
             <LoginContent elevation={3}>
-                <Typography
-                    variant="h3"
-                >
+                <Typography variant="h3">
                     Log in
                 </Typography>
                 <LoginForm onSubmit={handleSubmit}>
                     <TextField
                         error={Boolean(errors.email)}
                         helperText={errors.email}
-                        label="E-mail"
+                        label="Email"
                         name="email"
                         onChange={handleChange}
                         value={values.email}
                         variant="outlined"
                     />
                     <TextField
-                        error={Boolean(errors.password)}
-                        helperText={errors.password}
                         label="Password"
                         name="password"
                         onChange={handleChange}
