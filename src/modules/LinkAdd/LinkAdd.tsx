@@ -8,39 +8,12 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
-import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import React from 'react'
 
 import { useStyles } from './LinkAdd.styles'
 
 export const LinkAdd: React.FunctionComponent = () => {
     const classes = useStyles()
-    const router = useRouter()
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [titleError, setTitleError] = useState(false)
-    const [descriptionError, setDescriptionError] = useState(false)
-    const [category, setCategory] = useState('money')
-
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        setTitleError(false)
-        setDescriptionError(false)
-
-        if (title == '') {
-            setTitleError(true)
-        }
-        if (description == '') {
-            setDescriptionError(true)
-        }
-        if (title && description) {
-            void fetch('http://localhost:3000/dashboard', {
-                body: JSON.stringify({ category: category, description: description, title: title }),
-                headers: { 'Content-type': 'application/json' },
-                method: 'POST',
-            }).then(async () => router.push('/'))
-        }
-    }
 
     return (
         <Container>
@@ -56,30 +29,21 @@ export const LinkAdd: React.FunctionComponent = () => {
             <form
                 autoComplete="off"
                 noValidate={true}
-                onSubmit={handleSubmit}
             >
                 <TextField
                     className={classes.field}
                     color="secondary"
-                    error={titleError}
                     fullWidth={true}
                     label="Link Title"
-                    onChange={(event) => {
-                        setTitle(event.target.value)
-                    }}
                     required={true}
                     variant="outlined"
                 />
                 <TextField
                     className={classes.field}
                     color="secondary"
-                    error={descriptionError}
                     fullWidth={true}
                     label="Description"
                     multiline={true}
-                    onChange={(event) => {
-                        setDescription(event.target.value)
-                    }}
                     required={true}
                     rows={4}
                     variant="outlined"
@@ -88,12 +52,7 @@ export const LinkAdd: React.FunctionComponent = () => {
                     <FormLabel>
                         Link Category
                     </FormLabel>
-                    <RadioGroup
-                        onChange={(event) => {
-                            setCategory(event.target.value)
-                        }}
-                        value={category}
-                    >
+                    <RadioGroup>
                         <FormControlLabel
                             control={<Radio />}
                             label="Entertainment"
