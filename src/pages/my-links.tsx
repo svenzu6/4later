@@ -2,19 +2,19 @@ import type { NextPage } from 'next'
 import NextHead from 'next/head'
 import * as React from 'react'
 
-import { Dashboard } from '../modules/Dashboard'
+import { Layout } from '../components/Layout'
 
-const HomePage: NextPage = () => {
+const MyLinksPage: NextPage = () => {
     return (
         <>
             <NextHead>
                 <title>
-                    Dashboard
+                    My Links
                 </title>
             </NextHead>
-            <Dashboard />
+            <Layout />
         </>
     )
 }
 
-export default HomePage
+export default MyLinksPage

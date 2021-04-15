@@ -5,6 +5,8 @@ import getConfig from 'next/config'
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 
+import { Layout } from '../components/Layout'
+
 const GlobalStyle = createGlobalStyle`
   html {
       height: 100%; 
@@ -18,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = (props): JSX.Element => {
-    const { Component, pageProps } = props
+    const { Component, pageProps, router } = props
     const { publicRuntimeConfig } = getConfig()
 
     if (firebase.apps.length) {
@@ -33,6 +35,13 @@ const App = (props): JSX.Element => {
             storageBucket: publicRuntimeConfig.STORAGE_BUCKET ?? '',
         })
     }
+    if (router.pathname.startsWith('/favorites')) {
+        return (
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        )
+    }
 
     return (
         <>
@@ -40,6 +49,7 @@ const App = (props): JSX.Element => {
             <CssBaseline />
             <Component {...pageProps} />
         </>
+
     )
 }
 

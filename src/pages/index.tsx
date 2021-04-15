@@ -4,12 +4,12 @@ import * as React from 'react'
 
 import { Home } from '../modules/Home'
 
-const RegisterPage: NextPage = () => {
+const HomePage: NextPage = () => {
     return (
         <>
             <NextHead>
                 <title>
-                    Register
+                    4later
                 </title>
             </NextHead>
             <Home />
@@ -17,4 +17,4 @@ const RegisterPage: NextPage = () => {
     )
 }
 
-export default RegisterPage
+export default HomePage
