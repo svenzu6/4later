@@ -40,7 +40,7 @@ export const Login: React.FunctionComponent = () => {
                 .auth()
                 .signInWithEmailAndPassword(formValues.email, formValues.password)
                 .then(() => {
-                    void router.push('/dashboard')
+                    void router.push('/my-links')
                 })
         },
         validateOnChange: false,
