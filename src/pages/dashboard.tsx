@@ -2,9 +2,10 @@ import type { NextPage } from 'next'
 import NextHead from 'next/head'
 import * as React from 'react'
 
-import { Dashboard } from '../modules/Dashboard'
+import { SideBar } from '../components/SideBar'
+import { Dashboard } from '../modules/Dashboard/Dashboard'
 
-const HomePage: NextPage = () => {
+const DashboardPage: NextPage = () => {
     return (
         <>
             <NextHead>
@@ -12,9 +13,11 @@ const HomePage: NextPage = () => {
                     Dashboard
                 </title>
             </NextHead>
-            <Dashboard />
+            <SideBar>
+                <Dashboard />
+            </SideBar>
         </>
     )
 }
 
-export default HomePage
+export default DashboardPage
