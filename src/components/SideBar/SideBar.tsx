@@ -13,49 +13,45 @@ import { useRouter } from 'next/router'
 import React from 'react'
 
 import {
-    Root,
-    StyledDrawer,
+    SideBarDrawer,
+    SideBarRoot,
     Title,
     useStyles,
 } from './SideBar.styles'
 
+const menuItems = [
+    {
+        icon: <AddIcon />,
+        path: '/dashboard',
+        text: 'Dashboard',
+    },
+    {
+        icon: <StarIcon />,
+        path: '/favorites',
+        text: 'favorites',
+    },
+]
+
 export const SideBar: React.FunctionComponent = (props) => {
     const router = useRouter()
     const classes = useStyles()
-    const menuItems = [
-        {
-            icon: <AddIcon />,
-            path: '/dashboard',
-            text: 'Dashboard',
-        },
-
-        {
-            icon: <StarIcon />,
-            path: '/favorites',
-            text: 'favorites',
-        },
-
-    ]
 
     return (
-        <Root>
+        <SideBarRoot>
             <CssBaseline />
-            <StyledDrawer
+            <SideBarDrawer
                 anchor="left"
                 variant="permanent"
             >
-                <div>
-                    <Title variant="h5">
-                        4Later
-                    </Title>
-                </div>
-
+                <Title variant="h5">
+                    4Later
+                </Title>
                 <List>
                     {menuItems.map((item) => (
                         <ListItem
                             button={true}
                             key={item.text}
-                            onClick={async () => router.push(item.path)}
+                            onClick={() => void router.push(item.path)}
                         >
                             <ListItemIcon>
                                 {item.icon}
@@ -67,7 +63,7 @@ export const SideBar: React.FunctionComponent = (props) => {
                 <List>
                     <ListItem
                         button={true}
-                        onClick={async () => firebase
+                        onClick={() => void firebase
                             .auth()
                             .signOut()
                             .then(() => {
@@ -79,12 +75,11 @@ export const SideBar: React.FunctionComponent = (props) => {
                         </ListItemIcon>
                         <ListItemText primary="Logout" />
                     </ListItem>
-
                 </List>
-            </StyledDrawer>
+            </SideBarDrawer>
             <main className={classes.content}>
                 {props.children}
             </main>
-        </Root>
+        </SideBarRoot>
     )
 }
