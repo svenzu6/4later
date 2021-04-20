@@ -5,8 +5,6 @@ import getConfig from 'next/config'
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 
-import { Layout } from '../components/Layout'
-
 const GlobalStyle = createGlobalStyle`
   html {
       height: 100%; 
@@ -34,13 +32,6 @@ const App = (props): JSX.Element => {
             projectId: publicRuntimeConfig.PROJECT_ID ?? '',
             storageBucket: publicRuntimeConfig.STORAGE_BUCKET ?? '',
         })
-    }
-    if (router.pathname.startsWith('/favorites')) {
-        return (
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
-        )
     }
 
     return (
