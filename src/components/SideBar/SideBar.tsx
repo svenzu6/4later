@@ -15,7 +15,7 @@ import React from 'react'
 import {
     SideBarDrawer,
     SideBarRoot,
-    Title,
+    SideBarTitle,
     useStyles,
 } from './SideBar.styles'
 
@@ -43,9 +43,9 @@ export const SideBar: React.FunctionComponent = (props) => {
                 anchor="left"
                 variant="permanent"
             >
-                <Title variant="h5">
+                <SideBarTitle variant="h5">
                     4Later
-                </Title>
+                </SideBarTitle>
                 <List>
                     {menuItems.map((item) => (
                         <ListItem

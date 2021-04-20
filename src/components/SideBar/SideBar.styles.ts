@@ -17,13 +17,7 @@ export const SideBarDrawer = styled(Drawer)`
     width: 240;
 `
 
-export const TopBar = styled.div`
-    border: 2px solid;
-    margin-left: 168px;
-    grid-template-rows: 3ch auto minmax(10px, 60px);
-`
-
-export const Title = styled(Typography)`
+export const SideBarTitle = styled(Typography)`
    padding: 10px;
 `
 
