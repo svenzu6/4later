@@ -1,5 +1,4 @@
 import {
-    CssBaseline,
     List,
     ListItem,
     ListItemIcon,
@@ -16,7 +15,6 @@ import {
     SideBarDrawer,
     SideBarRoot,
     SideBarTitle,
-    useStyles,
 } from './SideBar.styles'
 
 const menuItems = [
@@ -34,11 +32,9 @@ const menuItems = [
 
 export const SideBar: React.FunctionComponent = (props) => {
     const router = useRouter()
-    const classes = useStyles()
 
     return (
         <SideBarRoot>
-            <CssBaseline />
             <SideBarDrawer
                 anchor="left"
                 variant="permanent"
@@ -77,7 +73,7 @@ export const SideBar: React.FunctionComponent = (props) => {
                     </ListItem>
                 </List>
             </SideBarDrawer>
-            <main className={classes.content}>
+            <main style={{ marginLeft: '300px' }}>
                 {props.children}
             </main>
         </SideBarRoot>
