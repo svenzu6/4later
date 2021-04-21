@@ -35,11 +35,8 @@ export const SideBar: React.FunctionComponent = (props) => {
 
     return (
         <SideBarRoot>
-            <SideBarDrawer
-                anchor="left"
-                variant="permanent"
-            >
-                <SideBarTitle variant="h5">
+            <SideBarDrawer>
+                <SideBarTitle>
                     4Later
                 </SideBarTitle>
                 <List>
@@ -73,7 +70,7 @@ export const SideBar: React.FunctionComponent = (props) => {
                     </ListItem>
                 </List>
             </SideBarDrawer>
-            <main style={{ marginLeft: '300px' }}>
+            <main>
                 {props.children}
             </main>
         </SideBarRoot>
