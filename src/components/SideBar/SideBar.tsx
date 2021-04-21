@@ -11,6 +11,8 @@ import firebase from 'firebase'
 import { useRouter } from 'next/router'
 import React from 'react'
 
+import { PageContainer } from '../PageContainer'
+
 import {
     SideBarDrawer,
     SideBarRoot,
@@ -70,9 +72,9 @@ export const SideBar: React.FunctionComponent = (props) => {
                     </ListItem>
                 </List>
             </SideBarDrawer>
-            <main>
+            <PageContainer>
                 {props.children}
-            </main>
+            </PageContainer>
         </SideBarRoot>
     )
 }

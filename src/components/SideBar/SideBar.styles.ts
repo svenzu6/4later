@@ -11,5 +11,6 @@ export const SideBarDrawer = styled.div`
 `
 
 export const SideBarTitle = styled.h2`
-   padding: 10px;
+   padding: 10px 20px;
+   text-align: center;
 `
