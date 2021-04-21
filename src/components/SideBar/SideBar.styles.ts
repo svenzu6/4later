@@ -1,7 +1,3 @@
-import {
-    Drawer,
-    Typography,
-} from '@material-ui/core'
 import styled from 'styled-components'
 
 export const SideBarRoot = styled.div`
@@ -9,11 +5,12 @@ export const SideBarRoot = styled.div`
     flex-direction: row;
 `
 
-export const SideBarDrawer = styled(Drawer)`
+export const SideBarDrawer = styled.div`
     flex-shrink: 0;
     width: 240;
 `
 
-export const SideBarTitle = styled(Typography)`
-   padding: 10px;
+export const SideBarTitle = styled.h2`
+   padding: 10px 20px;
+   text-align: center;
 `
