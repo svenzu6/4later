@@ -6,6 +6,7 @@ import {
     DialogTitle,
     TextField,
 } from '@material-ui/core'
+import cuid from 'cuid'
 import firebase from 'firebase'
 import { useFormik } from 'formik'
 import { useRouter } from 'next/router'
@@ -13,15 +14,17 @@ import React from 'react'
 import { useToggle } from 'react-use'
 import * as Yup from 'yup'
 
+import { Collections } from '../../../enums/firebaseCollections'
+
 import { DashboardCreateDialogForm } from './DashboardCreateDialog.styles'
 import type { DashboardCreateDialogType } from './DashboardCreateDialog.types'
 
 const DialogSchema = Yup.object().shape({
     description: Yup.string(),
-    link: Yup.string()
-        .url('Must be a link')
-        .required('Required'),
     title: Yup.string()
+        .required('Required'),
+    url: Yup.string()
+        .url('Must be a link')
         .required('Required'),
 })
 
@@ -29,7 +32,7 @@ export const DashboardCreateDialog: React.FunctionComponent = () => {
     const [isOpen, toggleOpen] = useToggle(false)
 
     const router = useRouter()
-
+    const user = firebase.auth().currentUser
     const {
         errors,
         handleChange,
@@ -39,36 +42,31 @@ export const DashboardCreateDialog: React.FunctionComponent = () => {
     } = useFormik<DashboardCreateDialogType>({
         initialValues: {
             description: '',
-            link: '',
             title: '',
+            url: '',
         },
         onSubmit: (formValues) => {
-            const user = firebase.auth().currentUser
-
-            const linkData = {
-                description: formValues.description,
-                linkovi: formValues.link,
-                title: formValues.title,
-            }
+            const id = cuid()
 
             void firebase
                 .firestore()
-                .collection('links')
-                .doc(user.uid)
-                .collection('all')
-                .doc()
-                .set(linkData)
-                .then(() => {
-                    toggleOpen()
+                .collection(Collections.LINKS)
+                .doc(id)
+                .set({
+                    description: formValues.description,
+                    id: id,
+                    title: formValues.title,
+                    url: formValues.url,
+                    userId: user.uid,
                 })
                 .then(() => {
+                    toggleOpen()
                     resetForm()
                 })
         },
         validateOnChange: false,
         validationSchema: DialogSchema,
-    },
-    )
+    })
 
     const handleCancel = () => {
         toggleOpen()
@@ -97,14 +95,14 @@ export const DashboardCreateDialog: React.FunctionComponent = () => {
                     >
                         <TextField
                             color="secondary"
-                            error={Boolean(errors.link)}
+                            error={Boolean(errors.url)}
                             fullWidth={true}
-                            helperText={errors.link}
+                            helperText={errors.url}
                             label="URL"
-                            name="link"
+                            name="url"
                             onChange={handleChange}
                             required={true}
-                            value={values.link}
+                            value={values.url}
                             variant="outlined"
                         />
                         <TextField

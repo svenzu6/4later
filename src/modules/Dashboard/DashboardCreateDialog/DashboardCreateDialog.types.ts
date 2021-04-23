@@ -1,5 +1,5 @@
 export type DashboardCreateDialogType = {
-    link: string
+    url: string
     title: string
     description: string
 }
