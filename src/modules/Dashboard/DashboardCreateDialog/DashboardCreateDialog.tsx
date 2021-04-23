@@ -9,7 +9,6 @@ import {
 import cuid from 'cuid'
 import firebase from 'firebase'
 import { useFormik } from 'formik'
-import { useRouter } from 'next/router'
 import React from 'react'
 import { useToggle } from 'react-use'
 import * as Yup from 'yup'
@@ -17,7 +16,7 @@ import * as Yup from 'yup'
 import { Collections } from '../../../enums/firebaseCollections'
 
 import { DashboardCreateDialogForm } from './DashboardCreateDialog.styles'
-import type { DashboardCreateDialogType } from './DashboardCreateDialog.types'
+import type { DashboardCreateDialogFormType } from './DashboardCreateDialog.types'
 
 const DialogSchema = Yup.object().shape({
     description: Yup.string(),
@@ -31,15 +30,15 @@ const DialogSchema = Yup.object().shape({
 export const DashboardCreateDialog: React.FunctionComponent = () => {
     const [isOpen, toggleOpen] = useToggle(false)
 
-    const router = useRouter()
     const user = firebase.auth().currentUser
+
     const {
         errors,
         handleChange,
         handleSubmit,
         resetForm,
         values,
-    } = useFormik<DashboardCreateDialogType>({
+    } = useFormik<DashboardCreateDialogFormType>({
         initialValues: {
             description: '',
             title: '',
@@ -90,9 +89,7 @@ export const DashboardCreateDialog: React.FunctionComponent = () => {
                     Add a Link
                 </DialogTitle>
                 <DialogContent>
-                    <DashboardCreateDialogForm
-                        onSubmit={handleSubmit}
-                    >
+                    <DashboardCreateDialogForm onSubmit={handleSubmit}>
                         <TextField
                             color="secondary"
                             error={Boolean(errors.url)}
