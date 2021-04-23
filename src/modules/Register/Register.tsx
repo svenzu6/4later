@@ -49,15 +49,14 @@ export const Register: React.FunctionComponent = () => {
             void firebase
                 .auth()
                 .createUserWithEmailAndPassword(formValues.email, formValues.password)
-                .then(() => {
-                    const user = firebase.auth().currentUser
-
+                .then((result) => {
                     void firebase
                         .firestore()
                         .collection('users')
-                        .doc(user.uid)
+                        .doc(result.user.uid)
                         .set({
-                            id: user.uid,
+                            email: formValues.email,
+                            id: result.user.uid,
                             username: formValues.username,
                         })
                 })
