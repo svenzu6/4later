@@ -9,6 +9,8 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import * as Yup from 'yup'
 
+import { Collections } from '../../enums/firebaseCollections'
+
 import {
     RegisterContent,
     RegisterForm,
@@ -52,7 +54,7 @@ export const Register: React.FunctionComponent = () => {
                 .then((result) => {
                     void firebase
                         .firestore()
-                        .collection('users')
+                        .collection(Collections.USERS)
                         .doc(result.user.uid)
                         .set({
                             email: formValues.email,
