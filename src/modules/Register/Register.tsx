@@ -3,12 +3,13 @@ import {
     TextField,
     Typography,
 } from '@material-ui/core'
-import cuid from 'cuid'
 import firebase from 'firebase/app'
 import { useFormik } from 'formik'
 import { useRouter } from 'next/router'
 import React from 'react'
 import * as Yup from 'yup'
+
+import { Collections } from '../../enums/firebaseCollections'
 
 import {
     RegisterContent,
@@ -50,15 +51,14 @@ export const Register: React.FunctionComponent = () => {
             void firebase
                 .auth()
                 .createUserWithEmailAndPassword(formValues.email, formValues.password)
-                .then(() => {
-                    const id = cuid()
-
+                .then((result) => {
                     void firebase
                         .firestore()
-                        .collection('users')
-                        .doc(id)
+                        .collection(Collections.USERS)
+                        .doc(result.user.uid)
                         .set({
-                            id: id,
+                            email: formValues.email,
+                            id: result.user.uid,
                             username: formValues.username,
                         })
                 })
