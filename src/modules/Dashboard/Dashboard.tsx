@@ -1,10 +1,12 @@
 import firebase from 'firebase'
 import React from 'react'
 
+import { LinkCard } from '../../components/LinkCard/LinkCard'
 import { Collections } from '../../enums/firebaseCollections'
 import { useCurrentUser } from '../../lib/useCurrentUser'
 
 import {
+    DashboardListContent,
     DashboardListRoot,
     DashboardRoot,
 } from './Dashboard.styles'
@@ -15,8 +17,6 @@ export const Dashboard: React.FunctionComponent = () => {
     const user = useCurrentUser()
 
     const [links, setLinks] = React.useState<LinkType[]>([])
-
-    console.log(user)
 
     const fetchLinks = () => {
         void firebase
@@ -47,13 +47,16 @@ export const Dashboard: React.FunctionComponent = () => {
             </h1>
             <DashboardCreateDialog />
             <DashboardListRoot>
-                {links.map((link) => {
-                    return (
-                        <h1 key={link.id}>
-                            {link.title}
-                        </h1>
-                    )
-                })}
+                <DashboardListContent>
+                    {links.map((link) => {
+                        return (
+                            <LinkCard
+                                key={link.id}
+                                link={link}
+                            />
+                        )
+                    })}
+                </DashboardListContent>
             </DashboardListRoot>
         </DashboardRoot>
     )
