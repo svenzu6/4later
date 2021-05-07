@@ -37,7 +37,7 @@ export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
         <LinkCardRoot>
             <LinkCardFavoriteContainer>
                 <IconButton onClick={toggleIsFavorite}>
-                    {isFavorite ? <FavoriteBorderIcon /> : <FavoriteIcon />}
+                    {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </IconButton>
             </LinkCardFavoriteContainer>
             <LinkCardContent>
