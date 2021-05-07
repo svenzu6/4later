@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const DashboardCreateDialogForm = styled.form`
+export const LinkFormForm = styled.form`
     display: grid;
     row-gap: 10px;
     justify-content: center;
