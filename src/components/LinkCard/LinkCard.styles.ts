@@ -11,7 +11,6 @@ export const LinkCardContent = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 10px;
 `
 
 export const LinkCardLinkContent = styled.div`
@@ -38,4 +37,8 @@ export const LinkCardIconContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+`
+
+export const LinkCardFavoriteContainer = styled.div`
+    padding: 4px 4px 0px 4px;
 `
