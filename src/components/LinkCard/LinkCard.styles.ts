@@ -5,6 +5,7 @@ export const LinkCardRoot = styled.div`
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     border-radius: 6px; 
 `
+
 export const LinkCardContent = styled.div`
     display: flex;
     flex-direction: row;
@@ -20,12 +21,14 @@ export const LinkCardLinkContent = styled.div`
     justify-content: space-between;
     padding: 0 12px;
 `
+
 export const LinkCardTitle = styled.h2`   
-    margin: 0 0;
+    margin: 0 ;
     padding: 12px;
 `
+
 export const LinkCardDescription = styled.p`   
-    margin: 0 0;
+    margin: 0 ;
     padding: 12px;
     overflow: hidden; 
     text-overflow: ellipsis; 

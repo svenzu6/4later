@@ -1,7 +1,7 @@
 import firebase from 'firebase'
 import React from 'react'
 
-import { LinkCard } from '../../components/LinkCard/LinkCard'
+import { LinkCard } from '../../components/LinkCard'
 import { Collections } from '../../enums/firebaseCollections'
 import { useCurrentUser } from '../../lib/useCurrentUser'
 
