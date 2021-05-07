@@ -1,52 +1,52 @@
-import { Button } from '@material-ui/core'
+import { IconButton } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
 import firebase from 'firebase'
 import Link from 'next/link'
 import React from 'react'
 
 import { Collections } from '../../enums/firebaseCollections'
+import { LinkCardEditDialog } from '../LinkCardEditDialog'
 
 import {
     LinkCardContent,
+    LinkCardDescription,
+    LinkCardIconContainer,
+    LinkCardLinkContent,
     LinkCardRoot,
     LinkCardTitle,
-    LinkCardTop,
-
 } from './LinkCard.styles'
 import type { LinkCardProps } from './LinkCard.types'
 
-export const LinkCard = (props: LinkCardProps) => {
+export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
     const { link } = props
 
-    const deleteLink = (() => {
+    const deleteLink = () => {
         void firebase
             .firestore()
             .collection(Collections.LINKS)
             .doc(link.id)
             .delete()
-    })
+    }
 
     return (
         <LinkCardRoot>
             <LinkCardContent>
-                <div key={link.id}>
-                    <LinkCardTop>
-                        <Button onClick={deleteLink}>
-                            <DeleteIcon />
-                        </Button>
-                    </LinkCardTop>
-                    <LinkCardTitle>
-                        {link.title}
-                    </LinkCardTitle>
-                    <Link href={link.url}>
-                        <a>
-                            {link.url}
-                        </a>
-                    </Link>
-                    <p>
-                        {link.description}
-                    </p>
-                </div>
+                <Link href={link.url}>
+                    <LinkCardLinkContent>
+                        <LinkCardTitle>
+                            {link.title}
+                        </LinkCardTitle>
+                        <LinkCardDescription>
+                            {link.description}
+                        </LinkCardDescription>
+                    </LinkCardLinkContent>
+                </Link>
+                <LinkCardIconContainer>
+                    <IconButton onClick={deleteLink}>
+                        <DeleteIcon />
+                    </IconButton>
+                    <LinkCardEditDialog link={link} />
+                </LinkCardIconContainer>
             </LinkCardContent>
         </LinkCardRoot>
     )

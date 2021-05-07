@@ -6,9 +6,11 @@ import { Collections } from '../../enums/firebaseCollections'
 import { useCurrentUser } from '../../lib/useCurrentUser'
 
 import {
+    DashboardDialogContainer,
     DashboardListContent,
     DashboardListRoot,
     DashboardRoot,
+    DashboardTitle,
 } from './Dashboard.styles'
 import type { LinkType } from './Dashboard.types'
 import { DashboardCreateDialog } from './DashboardCreateDialog'
@@ -42,10 +44,12 @@ export const Dashboard: React.FunctionComponent = () => {
 
     return (
         <DashboardRoot>
-            <h1>
+            <DashboardTitle>
                 DASHBOARD
-            </h1>
-            <DashboardCreateDialog />
+            </DashboardTitle>
+            <DashboardDialogContainer>
+                <DashboardCreateDialog />
+            </DashboardDialogContainer>
             <DashboardListRoot>
                 <DashboardListContent>
                     {links.map((link) => {

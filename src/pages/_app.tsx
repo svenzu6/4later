@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = (props): JSX.Element => {
-    const { Component, pageProps, router } = props
+    const { Component, pageProps } = props
     const { publicRuntimeConfig } = getConfig()
 
     if (firebase.apps.length) {
