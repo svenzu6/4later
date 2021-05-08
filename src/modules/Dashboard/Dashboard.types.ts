@@ -3,4 +3,5 @@ export type LinkType = {
     title: string
     url: string
     id: string
+    favorite: boolean
 }
