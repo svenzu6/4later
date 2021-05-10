@@ -12,9 +12,8 @@ import {
     FavoritesRoot,
     FavoritesTitle,
 } from './Favorites.styles'
-import type { FavoriteTypes } from './Favorites.types'
 
-export const Favorites: React.FunctionComponent<FavoriteTypes> = (props) => {
+export const Favorites: React.FunctionComponent = () => {
     const user = useCurrentUser()
 
     const [links, setLinks] = React.useState<LinkType[]>([])
