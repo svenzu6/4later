@@ -3,6 +3,7 @@ import NextHead from 'next/head'
 import * as React from 'react'
 
 import { SideBar } from '../components/SideBar'
+import { Favorites } from '../modules/Favorites'
 
 const FavoritesPage: NextPage = () => {
     return (
@@ -13,12 +14,7 @@ const FavoritesPage: NextPage = () => {
                 </title>
             </NextHead>
             <SideBar>
-                <p>
-                    favoritesfavoritesfavoritesfavoritesfavoritesfavoritesfavorites
-                    favoritesfavoritesfavoritesfavoritesfavoritesfavoritesfavoritesfavorites
-                    favoritesfavoritesfavoritesfavoritesfavoritesfavoritesfavoritesfavorites
-                    favoritesfavoritesfavoritesfavoritesfavoritesfavoritesfavoritesfavorites
-                </p>
+                <Favorites />
             </SideBar>
         </>
     )

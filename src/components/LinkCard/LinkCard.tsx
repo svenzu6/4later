@@ -6,10 +6,12 @@ import React from 'react'
 
 import { Collections } from '../../enums/firebaseCollections'
 import { LinkCardEditDialog } from '../LinkCardEditDialog'
+import { LinkCardFavorite } from '../LinkCardFavorite'
 
 import {
     LinkCardContent,
     LinkCardDescription,
+    LinkCardFavoriteContainer,
     LinkCardIconContainer,
     LinkCardLinkContent,
     LinkCardRoot,
@@ -30,6 +32,9 @@ export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
 
     return (
         <LinkCardRoot>
+            <LinkCardFavoriteContainer>
+                <LinkCardFavorite link={link} />
+            </LinkCardFavoriteContainer>
             <LinkCardContent>
                 <Link href={link.url}>
                     <LinkCardLinkContent>
