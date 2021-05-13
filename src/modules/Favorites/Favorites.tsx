@@ -18,26 +18,27 @@ export const Favorites: React.FunctionComponent = () => {
 
     const [links, setLinks] = React.useState<LinkType[]>([])
 
-    const fetchLinks = () => {
+    const fetchFavLinks = () => {
         void firebase
             .firestore()
             .collection(Collections.LINKS)
             .where('userId', '==', user?.id)
+            .where('isFavorite', '==', true)
             .onSnapshot((results) => {
-                const fetchedLinks: LinkType[] = []
+                const fetchedFavLinks: LinkType[] = []
 
                 results.forEach((result) => {
                     const fetchedLink = result.data() as LinkType
 
-                    fetchedLinks.push(fetchedLink)
+                    fetchedFavLinks.push(fetchedLink)
                 })
 
-                setLinks(fetchedLinks)
+                setLinks(fetchedFavLinks)
             })
     }
 
     React.useEffect(() => {
-        fetchLinks()
+        fetchFavLinks()
     }, [user])
 
     return (
@@ -49,14 +50,11 @@ export const Favorites: React.FunctionComponent = () => {
                 <FavoritesListContent>
                     {links.map((link) => {
                         return (
-                            link.favorite
-                                ? (
-                                    <LinkCard
-                                        key={link.id}
-                                        link={link}
-                                    />
-                                )
-                                : '')
+                            <LinkCard
+                                key={link.id}
+                                link={link}
+                            />
+                        )
                     })}
                 </FavoritesListContent>
             </FavoritesListRoot>

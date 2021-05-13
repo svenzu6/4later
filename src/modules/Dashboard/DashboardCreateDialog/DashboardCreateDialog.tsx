@@ -28,6 +28,7 @@ export const DashboardCreateDialog: React.FunctionComponent = () => {
             .set({
                 description: formValues.description,
                 id: id,
+                isFavorite: false,
                 title: formValues.title,
                 url: formValues.url,
                 userId: user.id,
