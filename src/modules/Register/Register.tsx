@@ -10,6 +10,7 @@ import React from 'react'
 import * as Yup from 'yup'
 
 import { Collections } from '../../enums/firebaseCollections'
+import { FirebaseErrors } from '../../enums/firebaseErrors'
 
 import {
     RegisterContent,
@@ -39,6 +40,7 @@ export const Register: React.FunctionComponent = () => {
         errors,
         handleChange,
         handleSubmit,
+        setErrors,
         values,
     } = useFormik<RegisterFormType>({
         initialValues: {
@@ -64,6 +66,11 @@ export const Register: React.FunctionComponent = () => {
                 })
                 .then(() => {
                     void router.push('/dashboard')
+                })
+                .catch((error: firebase.FirebaseError) => {
+                    if (error.code === FirebaseErrors.USER_EXISTS){
+                        setErrors({ email: error.message })
+                    }
                 })
         },
         validateOnChange: false,
@@ -101,6 +108,7 @@ export const Register: React.FunctionComponent = () => {
                         label="Password"
                         name="password"
                         onChange={handleChange}
+                        type="password"
                         value={values.password}
                         variant="outlined"
                     />
@@ -110,6 +118,7 @@ export const Register: React.FunctionComponent = () => {
                         label="Repeat Password"
                         name="passwordConfirmation"
                         onChange={handleChange}
+                        type="password"
                         value={values.passwordConfirmation}
                         variant="outlined"
                     />
