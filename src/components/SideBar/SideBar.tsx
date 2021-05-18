@@ -11,11 +11,12 @@ import firebase from 'firebase'
 import { useRouter } from 'next/router'
 import React from 'react'
 
+import { useCurrentUser } from '../../lib/useCurrentUser'
+
 import {
     SideBarDrawer,
     SideBarPageContent,
     SideBarRoot,
-    SideBarTitle,
 } from './SideBar.styles'
 
 const menuItems = [
@@ -33,19 +34,20 @@ const menuItems = [
 
 export const SideBar: React.FunctionComponent = (props) => {
     const router = useRouter()
+    const user = useCurrentUser()
 
     return (
         <SideBarRoot>
             <SideBarDrawer>
-                <SideBarTitle>
-                    4Later
-                </SideBarTitle>
+
                 <List>
                     {menuItems.map((item) => (
                         <ListItem
                             button={true}
                             key={item.text}
-                            onClick={() => void router.push(item.path)}
+                            onClick={(() => {
+                                void router.push(item.path)
+                            })}
                         >
                             <ListItemIcon>
                                 {item.icon}
@@ -54,6 +56,7 @@ export const SideBar: React.FunctionComponent = (props) => {
                         </ListItem>
                     ))}
                 </List>
+
                 <List>
                     <ListItem
                         button={true}

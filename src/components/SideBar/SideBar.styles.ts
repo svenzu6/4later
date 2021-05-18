@@ -7,16 +7,24 @@ export const SideBarRoot = styled.div`
 `
 
 export const SideBarDrawer = styled.div`
-    flex-shrink: 0;
-    width: 240;
-`
-
-export const SideBarTitle = styled.h2`
-   padding: 10px 20px;
-   text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-left: 15%;
+    padding-top: 100px;
+    padding-bottom: 8%;
 `
 
 export const SideBarPageContent = styled.div`
     width: 100%;
     height: 100%;
+`
+
+export const SideBarLinksContainer = styled.div`
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
 `
