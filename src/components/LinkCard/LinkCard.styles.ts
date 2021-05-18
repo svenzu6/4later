@@ -1,16 +1,20 @@
 import styled from 'styled-components'
 
-export const LinkCardRoot = styled.div` 
-    margin-bottom: 5px;   
+export const LinkCardContent = styled.div`
+    margin-bottom: 10px;   
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     border-radius: 6px; 
-`
-
-export const LinkCardContent = styled.div`
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-between;
+    min-width: 100%;
+`
+
+export const LinkCardRoot = styled.div` 
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
 `
 
 export const LinkCardLinkContent = styled.div`
@@ -36,7 +40,7 @@ export const LinkCardDescription = styled.p`
 export const LinkCardIconContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; 
 `
 
 export const LinkCardFavoriteContainer = styled.div`

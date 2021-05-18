@@ -44,6 +44,9 @@ export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
                         <LinkCardDescription>
                             {link.description}
                         </LinkCardDescription>
+                        <LinkCardDescription>
+                            {link.url}
+                        </LinkCardDescription>
                     </LinkCardLinkContent>
                 </Link>
                 <LinkCardIconContainer>
