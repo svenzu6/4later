@@ -11,6 +11,7 @@ import {
     FavoritesListRoot,
     FavoritesRoot,
     FavoritesTitle,
+    FavoritesTopContainer,
 } from './Favorites.styles'
 
 export const Favorites: React.FunctionComponent = () => {
@@ -43,9 +44,12 @@ export const Favorites: React.FunctionComponent = () => {
 
     return (
         <FavoritesRoot>
-            <FavoritesTitle>
-                FAVORITES
-            </FavoritesTitle>
+            <FavoritesTopContainer>
+                <FavoritesTitle>
+                    {user.username}
+                    's FAVORITES
+                </FavoritesTitle>
+            </FavoritesTopContainer>
             <FavoritesListRoot>
                 <FavoritesListContent>
                     {links.map((link) => {
