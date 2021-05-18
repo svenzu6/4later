@@ -1,5 +1,6 @@
 import { CssBaseline } from '@material-ui/core'
 import firebase from 'firebase'
+import type { AppProps } from 'next/app'
 import NextApp from 'next/app'
 import getConfig from 'next/config'
 import React from 'react'
@@ -17,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const App = (props): JSX.Element => {
+const App: React.FunctionComponent<AppProps> = (props) => {
     const { Component, pageProps } = props
     const { publicRuntimeConfig } = getConfig()
 
