@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Cormorant";
+    font-style: "normal";
+    font-weight: 300  ;   
+    src: url("/fonts/Cormorant-Light.ttf");
+    font-display: swap;
+}
+@font-face {
+        font-family: "Cormorant";
+        font-style: "normal";
+        font-weight: 600 ;
+        src: url("/fonts/Cormorant-SemiBold.ttf");
+        font-display: swap;
+}
