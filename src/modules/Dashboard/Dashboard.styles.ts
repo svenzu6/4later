@@ -6,6 +6,7 @@ export const DashboardRoot = styled.div`
 `
 export const DashboardTitle = styled.h1`
     text-align: center;
+    font-family: "Cormorant-SemiBold";
 `
 
 export const DashboardListRoot = styled.div`

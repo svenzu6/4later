@@ -40,14 +40,13 @@ export const Dashboard: React.FunctionComponent = () => {
 
     React.useEffect(() => {
         fetchLinks()
-    }, [user])
+    }, [user?.id])
 
     return (
         <DashboardRoot>
             <DashboardTopContainer>
                 <DashboardTitle>
-                    {user.username}
-                    's DASHBOARD
+                    DASHBOARD
                 </DashboardTitle>
                 <DashboardCreateDialog />
             </DashboardTopContainer>
