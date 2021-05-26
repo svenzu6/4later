@@ -4,10 +4,10 @@ export const SideBarRoot = styled.div`
     display: flex;
     flex-direction: row;
     height: 100%;
+    background-color:#fff5d7;
 `
 
 export const SideBarDrawer = styled.div`
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -27,4 +27,10 @@ export const SideBarLinksContainer = styled.div`
     align-items: center;
     justify-items: center;
     justify-content: center;
+`
+
+export const SideBarUsername = styled.h3`
+  text-align: left;
+  padding-bottom: 40px;
+  color: #ff5e6c;
 `

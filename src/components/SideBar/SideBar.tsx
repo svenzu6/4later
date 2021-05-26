@@ -17,6 +17,7 @@ import {
     SideBarDrawer,
     SideBarPageContent,
     SideBarRoot,
+    SideBarUsername,
 } from './SideBar.styles'
 
 const menuItems = [
@@ -28,7 +29,7 @@ const menuItems = [
     {
         icon: <StarIcon />,
         path: '/favorites',
-        text: 'favorites',
+        text: 'Favorites',
     },
 ]
 
@@ -39,8 +40,10 @@ export const SideBar: React.FunctionComponent = (props) => {
     return (
         <SideBarRoot>
             <SideBarDrawer>
-
                 <List>
+                    <SideBarUsername>
+                        {user.username}
+                    </SideBarUsername>
                     {menuItems.map((item) => (
                         <ListItem
                             button={true}
@@ -56,7 +59,6 @@ export const SideBar: React.FunctionComponent = (props) => {
                         </ListItem>
                     ))}
                 </List>
-
                 <List>
                     <ListItem
                         button={true}
