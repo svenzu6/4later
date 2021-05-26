@@ -40,14 +40,13 @@ export const Favorites: React.FunctionComponent = () => {
 
     React.useEffect(() => {
         fetchFavLinks()
-    }, [user])
+    }, [user?.id])
 
     return (
         <FavoritesRoot>
             <FavoritesTopContainer>
                 <FavoritesTitle>
-                    {user.username}
-                    's FAVORITES
+                    FAVORITES
                 </FavoritesTitle>
             </FavoritesTopContainer>
             <FavoritesListRoot>
