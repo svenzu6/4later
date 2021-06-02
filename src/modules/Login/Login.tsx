@@ -9,6 +9,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import * as Yup from 'yup'
 
+import { FirebaseErrors } from '../../enums/firebaseErrors'
+
 import {
     LoginContent,
     LoginForm,
@@ -29,6 +31,7 @@ export const Login: React.FunctionComponent = () => {
         errors,
         handleChange,
         handleSubmit,
+        setErrors,
         values,
     } = useFormik<LoginFormType>({
         initialValues: {
@@ -41,6 +44,11 @@ export const Login: React.FunctionComponent = () => {
                 .signInWithEmailAndPassword(formValues.email, formValues.password)
                 .then(() => {
                     void router.push('/dashboard')
+                })
+                .catch((error: firebase.FirebaseError) => {
+                    if (error.code === FirebaseErrors.USER_NOT_FOUND){
+                        setErrors({ email: error.message })
+                    }
                 })
         },
         validateOnChange: false,
