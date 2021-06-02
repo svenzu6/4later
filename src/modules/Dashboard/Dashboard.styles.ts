@@ -4,13 +4,10 @@ export const DashboardRoot = styled.div`
     padding: 20px;
     margin-left: -350px;
 `
-export const DashboardTitle = styled.h1`
-    text-align: center;
-    font-family: "Cormorant-SemiBold";
-`
 
 export const DashboardListRoot = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 `
@@ -23,7 +20,12 @@ export const DashboardListContent = styled.div`
 export const DashboardTopContainer = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 0 10%;
     padding-bottom: 10px;
+    padding-left: 8.5%;
+    padding-right: 8%;
+    justify-content: space-between;
+`
+
+export const DashboardTitle = styled.h1`
+    font-family: "Cormorant-SemiBold";
 `
