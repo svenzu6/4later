@@ -1,4 +1,5 @@
 import {
+    Divider,
     List,
     ListItem,
     ListItemIcon,
@@ -44,6 +45,7 @@ export const SideBar: React.FunctionComponent = (props) => {
                     <SideBarUsername>
                         {user.username}
                     </SideBarUsername>
+                    <Divider />
                     {menuItems.map((item) => (
                         <ListItem
                             button={true}

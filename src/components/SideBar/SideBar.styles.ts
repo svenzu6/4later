@@ -11,10 +11,9 @@ export const SideBarDrawer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
     padding-left: 15%;
     padding-top: 100px;
-    padding-bottom: 8%;
+    padding-bottom: 8%; 
 `
 
 export const SideBarPageContent = styled.div`
@@ -22,15 +21,7 @@ export const SideBarPageContent = styled.div`
     height: 100%;
 `
 
-export const SideBarLinksContainer = styled.div`
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    justify-content: center;
-`
-
 export const SideBarUsername = styled.h3`
-  text-align: left;
-  padding-bottom: 40px;
-  color: #ff5e6c;
+    font-family: Cormorant-Light;
+    color: #ff5e6c;
 `
