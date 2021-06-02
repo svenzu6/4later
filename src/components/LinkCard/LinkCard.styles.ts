@@ -30,6 +30,12 @@ export const LinkCardDescription = styled.p`
     font-family: "Cormorant-Light";
 `
 
+export const LinkCardUrl = styled.p`   
+    margin: 0 ;
+    padding: 12px;
+    font-family: "Cormorant-Light";
+`
+
 export const LinkCardIconContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -51,7 +57,6 @@ export const LinkCardFavoriteContainer = styled.div`
 export const LinkCardContent = styled.div`
     margin-bottom: 10px;   
     background-color:  #ff5e6c;
-    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
     border-radius: 6px; 
     display: flex;
     flex-direction: row;

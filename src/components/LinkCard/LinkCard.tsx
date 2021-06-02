@@ -16,6 +16,7 @@ import {
     LinkCardLinkContent,
     LinkCardRoot,
     LinkCardTitle,
+    LinkCardUrl,
 } from './LinkCard.styles'
 import type { LinkCardProps } from './LinkCard.types'
 
@@ -44,9 +45,9 @@ export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
                         <LinkCardDescription>
                             {link.description}
                         </LinkCardDescription>
-                        <LinkCardDescription>
+                        <LinkCardUrl>
                             {link.url}
-                        </LinkCardDescription>
+                        </LinkCardUrl>
                     </LinkCardLinkContent>
                 </Link>
                 <LinkCardIconContainer>
