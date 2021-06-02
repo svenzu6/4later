@@ -6,7 +6,6 @@ export const FavoritesRoot = styled.div`
 `
 
 export const FavoritesTitle = styled.h1`
-    text-align: center;
     font-family: "Cormorant-SemiBold";
 `
 
@@ -25,6 +24,7 @@ export const FavoritesTopContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 10%;
+    padding-left: 8.5%;
     padding-bottom: 10px;
+    padding-right: 8%;
 `
