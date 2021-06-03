@@ -5,6 +5,7 @@ export const LinkCardRoot = styled.div`
     flex-direction: row;
     justify-items: center;
     align-items: center;
+    width: 100%;
 `
 
 export const LinkCardLinkContent = styled.div`
@@ -46,13 +47,6 @@ export const LinkCardIconContainer = styled.div`
 export const LinkCardFavoriteContainer = styled.div`
     padding: 4px 4px 0px 4px;
 `
-
-// export const LinkCardContent = styled('div')({
-//     [LinkCardIconContainer]: {
-//         opacity: 1,
-//     },
-//     background: 'red',
-// })
 
 export const LinkCardContent = styled.div`
     margin-bottom: 10px;   
