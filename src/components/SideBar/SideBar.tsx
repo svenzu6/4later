@@ -18,6 +18,7 @@ import {
     SideBarDrawer,
     SideBarPageContent,
     SideBarRoot,
+    SidebarTitle,
     SideBarUsername,
 } from './SideBar.styles'
 
@@ -38,10 +39,22 @@ export const SideBar: React.FunctionComponent = (props) => {
     const router = useRouter()
     const user = useCurrentUser()
 
+    const handleLogout = () => {
+        void firebase
+            .auth()
+            .signOut()
+            .then(() => {
+                void router.push('/')
+            })
+    }
+
     return (
         <SideBarRoot>
             <SideBarDrawer>
                 <List>
+                    <SidebarTitle>
+                        4Later
+                    </SidebarTitle>
                     <SideBarUsername>
                         {user.username}
                     </SideBarUsername>
@@ -64,12 +77,7 @@ export const SideBar: React.FunctionComponent = (props) => {
                 <List>
                     <ListItem
                         button={true}
-                        onClick={() => void firebase
-                            .auth()
-                            .signOut()
-                            .then(() => {
-                                void router.push('/')
-                            })}
+                        onClick={handleLogout}
                     >
                         <ListItemIcon>
                             <ExitToAppTwoToneIcon />
