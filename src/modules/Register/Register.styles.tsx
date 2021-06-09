@@ -18,7 +18,7 @@ export const RegisterContent = styled(Paper)`
 `
 
 export const RegisterForm = styled.form`
-   display: grid;
+    display: grid;
     row-gap: 10px;
     justify-content: center;
     align-items: center;
