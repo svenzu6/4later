@@ -1,14 +1,14 @@
 @font-face {
-    font-family: "Cormorant-Light";
-    font-style: "normal";
-    font-weight: 300  ;   
-    src: url("/fonts/Cormorant-Light.ttf");
-    font-display: swap;
-}
-@font-face {
-        font-family: "Cormorant";
+        font-family: "Rokkit-Regular";
         font-style: "normal";
-        font-weight: 600 ;
-        src: url("/fonts/Cormorant-SemiBold.ttf");
+         src: url("/fonts/Rokkitt-Regular.ttf");
         font-display: swap;
+}
+
+@font-face {
+        font-family: "Rokkitt-Bold";
+        font-style: "normal";
+         src: url("/fonts/Rokkitt-Bold.ttf");
+        font-display: swap;
+        font-weight: 800 ;
 }

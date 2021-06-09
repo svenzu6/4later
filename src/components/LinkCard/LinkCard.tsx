@@ -36,6 +36,7 @@ export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
             <LinkCardFavoriteContainer>
                 <LinkCardFavorite link={link} />
             </LinkCardFavoriteContainer>
+
             <LinkCardContent>
                 <Link href={link.url}>
                     <LinkCardLinkContent>
@@ -50,13 +51,14 @@ export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
                         </LinkCardUrl>
                     </LinkCardLinkContent>
                 </Link>
-                <LinkCardIconContainer>
-                    <IconButton onClick={deleteLink}>
-                        <DeleteIcon />
-                    </IconButton>
-                    <LinkCardEditDialog link={link} />
-                </LinkCardIconContainer>
             </LinkCardContent>
+
+            <LinkCardIconContainer>
+                <IconButton onClick={deleteLink}>
+                    <DeleteIcon />
+                </IconButton>
+                <LinkCardEditDialog link={link} />
+            </LinkCardIconContainer>
         </LinkCardRoot>
     )
 }

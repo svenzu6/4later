@@ -1,13 +1,5 @@
 import styled from 'styled-components'
 
-export const LinkCardRoot = styled.div` 
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
-    width: 100%;
-`
-
 export const LinkCardLinkContent = styled.div`
     display: flex;
     flex-direction: column;
@@ -20,7 +12,7 @@ export const LinkCardLinkContent = styled.div`
 export const LinkCardTitle = styled.h2`   
     margin: 0 ;
     padding: 12px;
-    font-family: "Cormorant-Light";
+    font-family: "Rokkitt-Bold";
 `
 
 export const LinkCardDescription = styled.p`   
@@ -28,13 +20,13 @@ export const LinkCardDescription = styled.p`
     padding: 12px;
     overflow: hidden; 
     text-overflow: ellipsis; 
-    font-family: "Cormorant-Light";
+    font-family: "Rokkitt-Regular";
 `
 
 export const LinkCardUrl = styled.p`   
     margin: 0 ;
     padding: 12px;
-    font-family: "Cormorant-Light";
+    font-family: 'Rokkitt-Regular';
 `
 
 export const LinkCardIconContainer = styled.div`
@@ -42,6 +34,8 @@ export const LinkCardIconContainer = styled.div`
     flex-direction: column;
     justify-content: space-between; 
     opacity: 0;
+    padding: 3px;
+    row-gap: 20px;
 `
 
 export const LinkCardFavoriteContainer = styled.div`
@@ -56,6 +50,14 @@ export const LinkCardContent = styled.div`
     flex-direction: row;
     justify-content: space-between;
     min-width: 100%;
+`
+
+export const LinkCardRoot = styled.div` 
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
     &:hover ${LinkCardIconContainer} {
         opacity: 1
     }
