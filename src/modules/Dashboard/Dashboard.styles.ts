@@ -13,14 +13,14 @@ export const DashboardContent = styled.div`
     display: flex;
     padding: 30px;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-items: center;
 `
 
 export const DashboardHeader = styled.div`
     z-index: 300;
-    padding: 0 100px;
-    font-family: "Cormorant-SemiBold";
+    padding: 0 250px;
+    font-family: "Rokkitt-Bold";
     display: flex;
     position: sticky;
     align-items: center;
