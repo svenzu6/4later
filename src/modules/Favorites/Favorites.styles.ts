@@ -19,8 +19,8 @@ export const FavoritesContent = styled.div`
 
 export const FavoritesHeader = styled.div`
     z-index: 300;
-    padding: 0 100px;
-    font-family: "Cormorant-SemiBold";
+    padding: 0 250px;
+    font-family: 'Rokkitt-Bold';
     display: flex;
     position: sticky;
     align-items: center;
