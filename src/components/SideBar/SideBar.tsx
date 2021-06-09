@@ -16,9 +16,10 @@ import { useCurrentUser } from '../../lib/useCurrentUser'
 
 import {
     SideBarDrawer,
+    SidebarImage,
+    SidebarImgContainer,
     SideBarPageContent,
     SideBarRoot,
-    SidebarTitle,
     SideBarUsername,
 } from './SideBar.styles'
 
@@ -52,9 +53,9 @@ export const SideBar: React.FunctionComponent = (props) => {
         <SideBarRoot>
             <SideBarDrawer>
                 <List>
-                    <SidebarTitle>
-                        4Later
-                    </SidebarTitle>
+                    <SidebarImgContainer>
+                        <SidebarImage />
+                    </SidebarImgContainer>
                     <SideBarUsername>
                         {user.username}
                     </SideBarUsername>
@@ -86,6 +87,7 @@ export const SideBar: React.FunctionComponent = (props) => {
                     </ListItem>
                 </List>
             </SideBarDrawer>
+
             <SideBarPageContent>
                 {props.children}
             </SideBarPageContent>

@@ -11,7 +11,25 @@ export const SideBarDrawer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 250px;
+    padding-top: 100px;
+    position: absolute;
+    height: 100%;
+`
+export const SidebarImgContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+export const SidebarImage = styled.img`
+    width: 83px;
+    height: 83px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://picsum.photos/200/300?random=1");
 `
 
 export const SideBarPageContent = styled.div`
@@ -21,14 +39,7 @@ export const SideBarPageContent = styled.div`
 `
 
 export const SideBarUsername = styled.h3`
-    font-family: Cormorant-Light;
+    font-family: 'Rokkitt-Regular';
     color: #ff5e6c;
     text-align: center;
-    margin-bottom: -0.3px;
-    `
-
-export const SidebarTitle = styled.h2`
-    font-size: 20px;
-    text-align: center;
-    font-family: Cormorant-Bold;
 `
