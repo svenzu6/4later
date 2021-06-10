@@ -8,7 +8,6 @@ import type { LinkType } from '../Dashboard'
 
 import {
     FavoritesContent,
-    FavoritesHeader,
     FavoritesRoot,
 } from './Favorites.styles'
 
@@ -42,11 +41,6 @@ export const Favorites: React.FunctionComponent = () => {
 
     return (
         <FavoritesRoot>
-            <FavoritesHeader>
-                <h1>
-                    FAVORITES
-                </h1>
-            </FavoritesHeader>
             <FavoritesContent>
                 {links.map((link) => {
                     return (

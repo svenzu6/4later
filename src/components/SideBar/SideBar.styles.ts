@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 export const SideBarRoot = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 100%;
     width: 100%;
+    padding: 0 15%;
 `
 
 export const SideBarDrawer = styled.div`
@@ -13,10 +14,10 @@ export const SideBarDrawer = styled.div`
     justify-content: space-between;
     display: flex;
     flex-direction: column;
-    padding-left: 250px;
-    padding-top: 100px;
-    position: absolute;
     height: 100%;
+    padding: 5% 30px;
+    position: fixed;
+    top: 0;
 `
 export const SidebarImgContainer = styled.div`
     display: flex;
@@ -35,11 +36,31 @@ export const SidebarImage = styled.img`
 export const SideBarPageContent = styled.div`
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
 `
 
 export const SideBarUsername = styled.h3`
     font-family: 'Rokkitt-Regular';
     color: #ff5e6c;
     text-align: center;
+`
+
+export const SidebarHeader = styled.div`
+    z-index: 300;
+    font-family: "Rokkitt-Bold";
+    display: flex;
+    position: sticky;
+    align-items: center;
+    top: 0;
+    background-color: #ffffff;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -6px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    padding: 0 30px;
+`
+
+export const SidebarWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
 `

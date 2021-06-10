@@ -7,11 +7,9 @@ import { useCurrentUser } from '../../lib/useCurrentUser'
 
 import {
     DashboardContent,
-    DashboardHeader,
     DashboardRoot,
 } from './Dashboard.styles'
 import type { LinkType } from './Dashboard.types'
-import { DashboardCreateDialog } from './DashboardCreateDialog'
 
 export const Dashboard: React.FunctionComponent = () => {
     const user = useCurrentUser()
@@ -42,12 +40,6 @@ export const Dashboard: React.FunctionComponent = () => {
 
     return (
         <DashboardRoot>
-            <DashboardHeader>
-                <h1>
-                    DASHBOARD
-                </h1>
-                <DashboardCreateDialog />
-            </DashboardHeader>
             <DashboardContent>
                 {links.map((link) => {
                     return (

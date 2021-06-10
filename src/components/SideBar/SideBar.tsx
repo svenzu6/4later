@@ -13,14 +13,17 @@ import { useRouter } from 'next/router'
 import React from 'react'
 
 import { useCurrentUser } from '../../lib/useCurrentUser'
+import { DashboardCreateDialog } from '../../modules/Dashboard'
 
 import {
     SideBarDrawer,
+    SidebarHeader,
     SidebarImage,
     SidebarImgContainer,
     SideBarPageContent,
     SideBarRoot,
     SideBarUsername,
+    SidebarWrapper,
 } from './SideBar.styles'
 
 const menuItems = [
@@ -51,46 +54,63 @@ export const SideBar: React.FunctionComponent = (props) => {
 
     return (
         <SideBarRoot>
-            <SideBarDrawer>
-                <List>
-                    <SidebarImgContainer>
-                        <SidebarImage />
-                    </SidebarImgContainer>
-                    <SideBarUsername>
-                        {user.username}
-                    </SideBarUsername>
-                    <Divider />
-                    {menuItems.map((item) => (
+            <SidebarHeader>
+                {router.pathname == '/dashboard' ?
+                    (
+                        <>
+                            <h1>
+                                DASHBOARD
+                            </h1>
+                            <DashboardCreateDialog />
+                        </>
+                    )
+                    : (
+                        <h1>
+                            FAVORITES
+                        </h1>
+                    )}
+            </SidebarHeader>
+            <SidebarWrapper>
+                <SideBarDrawer>
+                    <List>
+                        <SidebarImgContainer>
+                            <SidebarImage />
+                        </SidebarImgContainer>
+                        <SideBarUsername>
+                            {user.username}
+                        </SideBarUsername>
+                        <Divider />
+                        {menuItems.map((item) => (
+                            <ListItem
+                                button={true}
+                                key={item.text}
+                                onClick={(() => {
+                                    void router.push(item.path)
+                                })}
+                            >
+                                <ListItemIcon>
+                                    {item.icon}
+                                </ListItemIcon>
+                                <ListItemText primary={item.text} />
+                            </ListItem>
+                        ))}
+                    </List>
+                    <List>
                         <ListItem
                             button={true}
-                            key={item.text}
-                            onClick={(() => {
-                                void router.push(item.path)
-                            })}
+                            onClick={handleLogout}
                         >
                             <ListItemIcon>
-                                {item.icon}
+                                <ExitToAppTwoToneIcon />
                             </ListItemIcon>
-                            <ListItemText primary={item.text} />
+                            <ListItemText primary="Logout" />
                         </ListItem>
-                    ))}
-                </List>
-                <List>
-                    <ListItem
-                        button={true}
-                        onClick={handleLogout}
-                    >
-                        <ListItemIcon>
-                            <ExitToAppTwoToneIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Logout" />
-                    </ListItem>
-                </List>
-            </SideBarDrawer>
-
-            <SideBarPageContent>
-                {props.children}
-            </SideBarPageContent>
+                    </List>
+                </SideBarDrawer>
+                <SideBarPageContent>
+                    {props.children}
+                </SideBarPageContent>
+            </SidebarWrapper>
         </SideBarRoot>
     )
 }
