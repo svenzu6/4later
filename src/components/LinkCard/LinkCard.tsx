@@ -16,6 +16,7 @@ import {
     LinkCardLinkContent,
     LinkCardRoot,
     LinkCardTitle,
+    LinkCardUrl,
 } from './LinkCard.styles'
 import type { LinkCardProps } from './LinkCard.types'
 
@@ -35,6 +36,7 @@ export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
             <LinkCardFavoriteContainer>
                 <LinkCardFavorite link={link} />
             </LinkCardFavoriteContainer>
+
             <LinkCardContent>
                 <Link href={link.url}>
                     <LinkCardLinkContent>
@@ -44,15 +46,19 @@ export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
                         <LinkCardDescription>
                             {link.description}
                         </LinkCardDescription>
+                        <LinkCardUrl>
+                            {link.url}
+                        </LinkCardUrl>
                     </LinkCardLinkContent>
                 </Link>
-                <LinkCardIconContainer>
-                    <IconButton onClick={deleteLink}>
-                        <DeleteIcon />
-                    </IconButton>
-                    <LinkCardEditDialog link={link} />
-                </LinkCardIconContainer>
             </LinkCardContent>
+
+            <LinkCardIconContainer>
+                <IconButton onClick={deleteLink}>
+                    <DeleteIcon />
+                </IconButton>
+                <LinkCardEditDialog link={link} />
+            </LinkCardIconContainer>
         </LinkCardRoot>
     )
 }

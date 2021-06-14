@@ -6,14 +6,10 @@ import { Collections } from '../../enums/firebaseCollections'
 import { useCurrentUser } from '../../lib/useCurrentUser'
 
 import {
-    DashboardDialogContainer,
-    DashboardListContent,
-    DashboardListRoot,
+    DashboardContent,
     DashboardRoot,
-    DashboardTitle,
 } from './Dashboard.styles'
 import type { LinkType } from './Dashboard.types'
-import { DashboardCreateDialog } from './DashboardCreateDialog'
 
 export const Dashboard: React.FunctionComponent = () => {
     const user = useCurrentUser()
@@ -40,28 +36,20 @@ export const Dashboard: React.FunctionComponent = () => {
 
     React.useEffect(() => {
         fetchLinks()
-    }, [user])
+    }, [user?.id])
 
     return (
         <DashboardRoot>
-            <DashboardTitle>
-                DASHBOARD
-            </DashboardTitle>
-            <DashboardDialogContainer>
-                <DashboardCreateDialog />
-            </DashboardDialogContainer>
-            <DashboardListRoot>
-                <DashboardListContent>
-                    {links.map((link) => {
-                        return (
-                            <LinkCard
-                                key={link.id}
-                                link={link}
-                            />
-                        )
-                    })}
-                </DashboardListContent>
-            </DashboardListRoot>
+            <DashboardContent>
+                {links.map((link) => {
+                    return (
+                        <LinkCard
+                            key={link.id}
+                            link={link}
+                        />
+                    )
+                })}
+            </DashboardContent>
         </DashboardRoot>
     )
 }

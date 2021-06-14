@@ -7,10 +7,8 @@ import { useCurrentUser } from '../../lib/useCurrentUser'
 import type { LinkType } from '../Dashboard'
 
 import {
-    FavoritesListContent,
-    FavoritesListRoot,
+    FavoritesContent,
     FavoritesRoot,
-    FavoritesTitle,
 } from './Favorites.styles'
 
 export const Favorites: React.FunctionComponent = () => {
@@ -39,25 +37,20 @@ export const Favorites: React.FunctionComponent = () => {
 
     React.useEffect(() => {
         fetchFavLinks()
-    }, [user])
+    }, [user?.id])
 
     return (
         <FavoritesRoot>
-            <FavoritesTitle>
-                FAVORITES
-            </FavoritesTitle>
-            <FavoritesListRoot>
-                <FavoritesListContent>
-                    {links.map((link) => {
-                        return (
-                            <LinkCard
-                                key={link.id}
-                                link={link}
-                            />
-                        )
-                    })}
-                </FavoritesListContent>
-            </FavoritesListRoot>
+            <FavoritesContent>
+                {links.map((link) => {
+                    return (
+                        <LinkCard
+                            key={link.id}
+                            link={link}
+                        />
+                    )
+                })}
+            </FavoritesContent>
         </FavoritesRoot>
     )
 }

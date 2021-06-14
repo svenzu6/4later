@@ -1,0 +1,14 @@
+@font-face {
+        font-family: "Rokkitt-Regular";
+        font-style: "normal";
+        src: url("/fonts/Rokkitt-Regular.ttf");
+        font-display: swap;
+}
+
+@font-face {
+        font-family: "Rokkitt-Bold";
+        font-style: "normal";
+        src: url("/fonts/Rokkitt-Bold.ttf");
+        font-display: swap;
+        font-weight: 800 ;
+}

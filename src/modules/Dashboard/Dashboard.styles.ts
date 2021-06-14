@@ -1,26 +1,18 @@
 import styled from 'styled-components'
 
 export const DashboardRoot = styled.div`
-    padding: 20px;
-`
-export const DashboardTitle = styled.h1`
-    text-align: center;
-`
-
-export const DashboardDialogContainer = styled.div`
-    padding: 0 27% ;
-    padding-top: 40px;
     display: flex;
-    justify-content: flex-end;
-`
-
-export const DashboardListRoot = styled.div`
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 20px;
     align-items: center;
+    width: 100%;
 `
 
-export const DashboardListContent = styled.div`
-    padding: 10px;
-    width: 50%;
+export const DashboardContent = styled.div`
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
 `

@@ -57,10 +57,10 @@ export const Register: React.FunctionComponent = () => {
                     void firebase
                         .firestore()
                         .collection(Collections.USERS)
-                        .doc(result.user.uid)
+                        .doc(result.user?.uid)
                         .set({
                             email: formValues.email,
-                            id: result.user.uid,
+                            id: result.user?.uid,
                             username: formValues.username,
                         })
                 })

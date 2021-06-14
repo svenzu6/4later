@@ -1,4 +1,5 @@
 import {
+    Divider,
     List,
     ListItem,
     ListItemIcon,
@@ -11,11 +12,18 @@ import firebase from 'firebase'
 import { useRouter } from 'next/router'
 import React from 'react'
 
+import { useCurrentUser } from '../../lib/useCurrentUser'
+import { DashboardCreateDialog } from '../../modules/Dashboard'
+
 import {
     SideBarDrawer,
+    SidebarHeader,
+    SidebarImage,
+    SidebarImgContainer,
     SideBarPageContent,
     SideBarRoot,
-    SideBarTitle,
+    SideBarUsername,
+    SidebarWrapper,
 } from './SideBar.styles'
 
 const menuItems = [
@@ -27,53 +35,82 @@ const menuItems = [
     {
         icon: <StarIcon />,
         path: '/favorites',
-        text: 'favorites',
+        text: 'Favorites',
     },
 ]
 
 export const SideBar: React.FunctionComponent = (props) => {
     const router = useRouter()
+    const user = useCurrentUser()
+
+    const handleLogout = () => {
+        void firebase
+            .auth()
+            .signOut()
+            .then(() => {
+                void router.push('/')
+            })
+    }
 
     return (
         <SideBarRoot>
-            <SideBarDrawer>
-                <SideBarTitle>
-                    4Later
-                </SideBarTitle>
-                <List>
-                    {menuItems.map((item) => (
+            <SidebarHeader>
+                {router.pathname == '/dashboard' ?
+                    (
+                        <>
+                            <h1>
+                                DASHBOARD
+                            </h1>
+                            <DashboardCreateDialog />
+                        </>
+                    )
+                    : (
+                        <h1>
+                            FAVORITES
+                        </h1>
+                    )}
+            </SidebarHeader>
+            <SidebarWrapper>
+                <SideBarDrawer>
+                    <List>
+                        <SidebarImgContainer>
+                            <SidebarImage />
+                        </SidebarImgContainer>
+                        <SideBarUsername>
+                            {user.username}
+                        </SideBarUsername>
+                        <Divider />
+                        {menuItems.map((item) => (
+                            <ListItem
+                                button={true}
+                                key={item.text}
+                                onClick={(() => {
+                                    void router.push(item.path)
+                                })}
+                            >
+                                <ListItemIcon>
+                                    {item.icon}
+                                </ListItemIcon>
+                                <ListItemText primary={item.text} />
+                            </ListItem>
+                        ))}
+                    </List>
+                    <List>
                         <ListItem
                             button={true}
-                            key={item.text}
-                            onClick={() => void router.push(item.path)}
+                            onClick={handleLogout}
                         >
                             <ListItemIcon>
-                                {item.icon}
+                                <ExitToAppTwoToneIcon />
                             </ListItemIcon>
-                            <ListItemText primary={item.text} />
+                            <ListItemText primary="Logout" />
                         </ListItem>
-                    ))}
-                </List>
-                <List>
-                    <ListItem
-                        button={true}
-                        onClick={() => void firebase
-                            .auth()
-                            .signOut()
-                            .then(() => {
-                                void router.push('/')
-                            })}
-                    >
-                        <ListItemIcon>
-                            <ExitToAppTwoToneIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Logout" />
-                    </ListItem>
-                </List>
-            </SideBarDrawer>
-            <SideBarPageContent>
-                {props.children}
-            </SideBarPageContent>
+                    </List>
+                </SideBarDrawer>
+                <SideBarPageContent>
+                    {props.children}
+                </SideBarPageContent>
+            </SidebarWrapper>
         </SideBarRoot>
     )
 }
