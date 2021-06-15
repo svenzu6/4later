@@ -7,6 +7,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import {
+    HomeBackground,
     HomeContent,
     HomeRoot,
 } from './Home.styles'
@@ -14,9 +15,13 @@ import {
 export const Home: React.FunctionComponent = () => {
     return (
         <HomeRoot>
+            <HomeBackground />
             <HomeContent>
-                <Typography variant="h3">
-                    Welcome, get started!
+                <Typography variant="h4">
+                    Save your links
+                </Typography>
+                <Typography variant="h2">
+                    4later
                 </Typography>
                 <ButtonGroup
                     color="primary"

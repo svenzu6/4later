@@ -7,6 +7,9 @@ export const RegisterRoot = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url('icons/floppy.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
 `
 
 export const RegisterContent = styled(Paper)`
@@ -15,6 +18,10 @@ export const RegisterContent = styled(Paper)`
     justify-content: center;
     align-items: center;
     padding: 30px;
+    background-image: url('icons/floppy.jpg');
+    background-position: start;
+    background-size: cover;
+    position: absolute;
 `
 
 export const RegisterForm = styled.form`
@@ -24,3 +31,4 @@ export const RegisterForm = styled.form`
     align-items: center;
     padding: 30px 0;
 `
+
