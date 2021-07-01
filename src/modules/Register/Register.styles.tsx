@@ -31,4 +31,3 @@ export const RegisterForm = styled.form`
     align-items: center;
     padding: 30px 0;
 `
-
