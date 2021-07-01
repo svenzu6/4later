@@ -21,6 +21,7 @@ export const useCurrentUser = () => {
             .doc(firebaseUser?.uid)
             .onSnapshot((result) => {
                 const fetchedUser = result.data() as UserType | null
+
                 if (!fetchedUser) {
                     return
                 }

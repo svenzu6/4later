@@ -55,7 +55,7 @@ export const SideBar: React.FunctionComponent = (props) => {
     return (
         <SideBarRoot>
             <SidebarHeader>
-                {router.pathname == '/dashboard' ?
+                {router.pathname === '/dashboard' ?
                     (
                         <>
                             <h1>
@@ -64,11 +64,14 @@ export const SideBar: React.FunctionComponent = (props) => {
                             <DashboardCreateDialog />
                         </>
                     )
-                    : (
+                    : null}
+                {router.pathname === '/favorites' ?
+                    (
                         <h1>
                             FAVORITES
                         </h1>
-                    )}
+                    )
+                    : null}
             </SidebarHeader>
             <SidebarWrapper>
                 <SideBarDrawer>

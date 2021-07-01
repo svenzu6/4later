@@ -10,13 +10,13 @@ export const LinkCardLinkContent = styled.div`
 `
 
 export const LinkCardTitle = styled.h2`   
-    margin: 0 ;
+    margin: 0;
     padding: 12px;
     font-family: "Rokkitt-Bold";
 `
 
 export const LinkCardDescription = styled.p`   
-    margin: 0 ;
+    margin: 0;
     padding: 12px;
     overflow: hidden; 
     text-overflow: ellipsis; 
@@ -24,7 +24,7 @@ export const LinkCardDescription = styled.p`
 `
 
 export const LinkCardUrl = styled.p`   
-    margin: 0 ;
+    margin: 0;
     padding: 12px;
     font-family: 'Rokkitt-Regular';
 `
@@ -44,7 +44,7 @@ export const LinkCardFavoriteContainer = styled.div`
 
 export const LinkCardContent = styled.div`
     margin-bottom: 10px;   
-    background-color:  #ff5e6c;
+    background-color:  #F26E89;
     border-radius: 6px; 
     display: flex;
     flex-direction: row;

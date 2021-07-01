@@ -7,6 +7,9 @@ export const LoginRoot = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url('icons/floppy.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
 `
 
 export const LoginContent = styled(Paper)`
@@ -15,6 +18,10 @@ export const LoginContent = styled(Paper)`
     justify-content: center;
     align-items: center;
     padding: 30px;
+    background-image: url('icons/floppy.jpg');
+    background-position: start;
+    background-size: cover;
+    position: absolute;
 `
 
 export const LoginForm = styled.form`

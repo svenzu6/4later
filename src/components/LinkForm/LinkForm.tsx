@@ -22,11 +22,17 @@ const ValidationSchema = Yup.object().shape({
         .required('Required'),
 })
 
+const defaultValues: LinkFormType = {
+    description: '',
+    title: '',
+    url: '',
+}
+
 export const LinkForm: React.FunctionComponent<LinkFormProps> = (props) => {
     const {
         actions,
         onSubmit,
-        value: initialValues,
+        value: initialValues = defaultValues,
     } = props
 
     const {
@@ -37,11 +43,7 @@ export const LinkForm: React.FunctionComponent<LinkFormProps> = (props) => {
         values,
     } = useFormik<LinkFormType>({
         enableReinitialize: true,
-        initialValues: {
-            description: initialValues?.description ?? '',
-            title: initialValues?.title ?? '',
-            url: initialValues?.url ?? '',
-        },
+        initialValues: initialValues,
         onSubmit: (formValues) => {
             onSubmit(formValues)
             resetForm({})

@@ -36,7 +36,6 @@ export const SidebarImage = styled.img`
 export const SideBarPageContent = styled.div`
     width: 100%;
     height: 100%;
-    overflow-y: auto;
 `
 
 export const SideBarUsername = styled.h3`
