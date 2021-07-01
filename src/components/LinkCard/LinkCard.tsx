@@ -25,7 +25,7 @@ import type { LinkCardFavoriteProps } from './LinkCardFavorite.types'
 export const LinkCardFavorite: React.FunctionComponent<LinkCardFavoriteProps> = (props) => {
     const { link } = props
 
-    const handleFav = () => {
+    const handleFavorites = () => {
         void firebase
             .firestore()
             .collection(Collections.LINKS)
@@ -36,7 +36,7 @@ export const LinkCardFavorite: React.FunctionComponent<LinkCardFavoriteProps> = 
     }
 
     return (
-        <IconButton onClick={handleFav}>
+        <IconButton onClick={handleFavorites}>
             {link.isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
         </IconButton>
     )
