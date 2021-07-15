@@ -30,7 +30,7 @@ export const SidebarImage = styled.img`
     border-radius: 50%;
     background-position: center;
     background-size: cover;
-    background-image: url("https://picsum.photos/200/300?random=1");
+    /* background-image: url("https://picsum.photos/200/300?random=1"); */
 `
 
 export const SideBarPageContent = styled.div`

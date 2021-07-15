@@ -15,19 +15,27 @@ export const useCurrentUser = () => {
     })
 
     React.useEffect(() => {
-        void firebase
-            .firestore()
-            .collection(Collections.USERS)
-            .doc(firebaseUser?.uid)
-            .onSnapshot((result) => {
-                const fetchedUser = result.data() as UserType | null
+        const currentUser = localStorage.getItem('user')
 
-                if (!fetchedUser) {
-                    return
-                }
+        if (currentUser) {
+            setUser(JSON.parse(currentUser))
+        } else {
+            void firebase
+                .firestore()
+                .collection(Collections.USERS)
+                .doc(firebaseUser?.uid)
+                .onSnapshot((result) => {
+                    const fetchedUser = result.data() as UserType | null
 
-                setUser(fetchedUser)
-            })
+                    if (!fetchedUser) {
+                        return
+                    }
+
+                    localStorage.setItem('user', JSON.stringify(fetchedUser))
+
+                    setUser(fetchedUser)
+                })
+        }
     }, [firebaseUser])
 
     return user

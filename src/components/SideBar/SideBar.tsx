@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import AddIcon from '@material-ui/icons/Add'
 import ExitToAppTwoToneIcon from '@material-ui/icons/ExitToAppTwoTone'
 import StarIcon from '@material-ui/icons/Star'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import { useRouter } from 'next/router'
 import React from 'react'
 
@@ -80,7 +80,7 @@ export const SideBar: React.FunctionComponent = (props) => {
                             <SidebarImage />
                         </SidebarImgContainer>
                         <SideBarUsername>
-                            {user.username}
+                            {user?.username}
                         </SideBarUsername>
                         <Divider />
                         {menuItems.map((item) => (
