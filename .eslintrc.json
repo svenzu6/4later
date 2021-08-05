@@ -9,6 +9,7 @@
         "project": "./tsconfig.json"
     },
     "ignorePatterns": [
-        "**/types.ts"
+        "**/types.ts",
+        "next-env.d.ts"
     ]
 }

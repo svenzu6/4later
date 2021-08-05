@@ -1,5 +1,7 @@
 import { CssBaseline } from '@material-ui/core'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
 import type { AppProps } from 'next/app'
 import NextApp from 'next/app'
 import getConfig from 'next/config'
@@ -22,17 +24,15 @@ const App: React.FunctionComponent<AppProps> = (props) => {
     const { Component, pageProps } = props
     const { publicRuntimeConfig } = getConfig()
 
-    if (firebase.apps.length) {
-        firebase.app()
-    } else if (publicRuntimeConfig) {
-        firebase.initializeApp({
-            apiKey: publicRuntimeConfig.API_KEY ?? '',
+    if (!firebase.apps.length) {
+        firebase.initializeApp({ apiKey: publicRuntimeConfig.API_KEY ?? '',
             appId: publicRuntimeConfig.APP_ID ?? '',
             authDomain: publicRuntimeConfig.AUTH_DOMAIN ?? '',
             messagingSenderId: publicRuntimeConfig.MESSAGING_SENDER_ID ?? '',
             projectId: publicRuntimeConfig.PROJECT_ID ?? '',
-            storageBucket: publicRuntimeConfig.STORAGE_BUCKET ?? '',
-        })
+            storageBucket: publicRuntimeConfig.STORAGE_BUCKET ?? '' })
+    } else {
+        firebase.app() // if already initialized, use that one
     }
 
     return (

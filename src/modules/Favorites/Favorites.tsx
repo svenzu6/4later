@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import React from 'react'
 
 import { LinkCard } from '../../components/LinkCard'
@@ -12,17 +12,24 @@ import {
 } from './Favorites.styles'
 
 export const Favorites: React.FunctionComponent = () => {
-    const user = useCurrentUser()
-
     const [links, setLinks] = React.useState<LinkType[]>([])
+    const currentUser = useCurrentUser()
 
     const fetchFavLinks = () => {
-        void firebase
+        if (!currentUser) {
+            return
+        }
+
+        const unsubscribe = firebase
             .firestore()
             .collection(Collections.LINKS)
-            .where('userId', '==', user?.id)
+            .where('userId', '==', currentUser.id)
             .where('isFavorite', '==', true)
             .onSnapshot((results) => {
+                if (!results.size) {
+                    return
+                }
+
                 const fetchedFavLinks: LinkType[] = []
 
                 results.forEach((result) => {
@@ -33,11 +40,15 @@ export const Favorites: React.FunctionComponent = () => {
 
                 setLinks(fetchedFavLinks)
             })
+
+        return () => {
+            unsubscribe()
+        }
     }
 
     React.useEffect(() => {
         fetchFavLinks()
-    }, [user?.id])
+    }, [currentUser?.id])
 
     return (
         <FavoritesRoot>

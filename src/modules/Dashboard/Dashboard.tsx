@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import React from 'react'
 
 import { LinkCard } from '../../components/LinkCard'
@@ -12,16 +12,24 @@ import {
 import type { LinkType } from './Dashboard.types'
 
 export const Dashboard: React.FunctionComponent = () => {
-    const user = useCurrentUser()
-
     const [links, setLinks] = React.useState<LinkType[]>([])
 
+    const currentUser = useCurrentUser()
+
     const fetchLinks = () => {
-        void firebase
+        if (!currentUser) {
+            return
+        }
+
+        const unsubscribe = firebase
             .firestore()
             .collection(Collections.LINKS)
-            .where('userId', '==', user?.id)
+            .where('userId', '==', currentUser.id)
             .onSnapshot((results) => {
+                if (!results.size) {
+                    return
+                }
+
                 const fetchedLinks: LinkType[] = []
 
                 results.forEach((result) => {
@@ -32,11 +40,15 @@ export const Dashboard: React.FunctionComponent = () => {
 
                 setLinks(fetchedLinks)
             })
+
+        return () => {
+            unsubscribe()
+        }
     }
 
     React.useEffect(() => {
         fetchLinks()
-    }, [user?.id])
+    }, [currentUser?.id])
 
     return (
         <DashboardRoot>
