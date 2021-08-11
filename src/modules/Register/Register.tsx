@@ -36,6 +36,8 @@ const ValidationSchema = Yup.object().shape({
 export const Register: React.FunctionComponent = () => {
     const router = useRouter()
 
+    const coolImages = require('cool-images')
+
     const {
         errors,
         handleChange,
@@ -45,6 +47,7 @@ export const Register: React.FunctionComponent = () => {
     } = useFormik<RegisterFormType>({
         initialValues: {
             email: '',
+            image: '',
             password: '',
             passwordConfirmation: '',
             username: '',
@@ -61,6 +64,7 @@ export const Register: React.FunctionComponent = () => {
                         .set({
                             email: formValues.email,
                             id: result.user?.uid,
+                            image: coolImages.one(),
                             username: formValues.username,
                         })
                 })

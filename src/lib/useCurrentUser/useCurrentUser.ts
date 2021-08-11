@@ -11,6 +11,7 @@ export const useCurrentUser = () => {
     const [user, setUser] = React.useState<UserType>({
         email: '',
         id: '',
+        image: '',
         username: '',
     })
 
