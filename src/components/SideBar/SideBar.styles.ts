@@ -24,13 +24,13 @@ export const SidebarImgContainer = styled.div`
     justify-content: center;
     align-items: center;
 `
-export const SidebarImage = styled.img`
+export const SidebarImage = styled.img`   
     width: 83px;
     height: 83px;
     border-radius: 50%;
     background-position: center;
     background-size: cover;
-    /* background-image: url("https://picsum.photos/200/300?random=1"); */
+    background-image: url(${(props) => props.src})
 `
 
 export const SideBarPageContent = styled.div`

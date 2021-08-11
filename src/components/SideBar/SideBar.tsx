@@ -49,6 +49,7 @@ export const SideBar: React.FunctionComponent = (props) => {
             .signOut()
             .then(() => {
                 void router.push('/')
+                localStorage.removeItem('user')
             })
     }
 
@@ -77,7 +78,7 @@ export const SideBar: React.FunctionComponent = (props) => {
                 <SideBarDrawer>
                     <List>
                         <SidebarImgContainer>
-                            <SidebarImage />
+                            <SidebarImage src={user.image} />
                         </SidebarImgContainer>
                         <SideBarUsername>
                             {user?.username}
