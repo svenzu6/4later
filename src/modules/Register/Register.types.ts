@@ -3,4 +3,5 @@ export type RegisterFormType = {
     username: string
     password: string
     passwordConfirmation: string
+    image: string
 }
