@@ -26,7 +26,7 @@ export const Dashboard: React.FunctionComponent = () => {
             .collection(Collections.LINKS)
             .where('userId', '==', currentUser.id)
             .onSnapshot((results) => {
-                if (!results.size) {
+                if (!results) {
                     return
                 }
 

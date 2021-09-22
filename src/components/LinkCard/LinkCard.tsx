@@ -20,6 +20,7 @@ import {
     LinkCardUrl,
 } from './LinkCard.styles'
 import type { LinkCardProps } from './LinkCard.types'
+import type { LinkCardDeleteProps } from './LinkCardDelete.types'
 import type { LinkCardFavoriteProps } from './LinkCardFavorite.types'
 
 export const LinkCardFavorite: React.FunctionComponent<LinkCardFavoriteProps> = (props) => {
@@ -42,7 +43,7 @@ export const LinkCardFavorite: React.FunctionComponent<LinkCardFavoriteProps> = 
     )
 }
 
-export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
+export const LinkCardDelete: React.FunctionComponent<LinkCardDeleteProps> = (props) => {
     const { link } = props
 
     const deleteLink = () => {
@@ -54,30 +55,39 @@ export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
     }
 
     return (
+        <IconButton onClick={deleteLink}>
+            <DeleteIcon />
+        </IconButton>
+    )
+}
+
+export const LinkCard: React.FunctionComponent<LinkCardProps> = (props) => {
+    const { link } = props
+
+    return (
         <LinkCardRoot>
             <LinkCardFavoriteContainer>
                 <LinkCardFavorite link={link} />
             </LinkCardFavoriteContainer>
             <LinkCardContent>
                 <Link href={link.url}>
-                    <LinkCardLinkContent>
-                        <LinkCardTitle>
-                            {link.title}
-                        </LinkCardTitle>
-                        <LinkCardDescription>
-                            {link.description}
-                        </LinkCardDescription>
-                        <LinkCardUrl>
-                            {link.url}
-                        </LinkCardUrl>
-                    </LinkCardLinkContent>
+                    <a target="_blank">
+                        <LinkCardLinkContent>
+                            <LinkCardTitle>
+                                {link.title}
+                            </LinkCardTitle>
+                            <LinkCardDescription>
+                                {link.description}
+                            </LinkCardDescription>
+                            <LinkCardUrl>
+                                {link.url}
+                            </LinkCardUrl>
+                        </LinkCardLinkContent>
+                    </a>
                 </Link>
             </LinkCardContent>
-
             <LinkCardIconContainer>
-                <IconButton onClick={deleteLink}>
-                    <DeleteIcon />
-                </IconButton>
+                <LinkCardDelete link={link} />
                 <LinkCardEditDialog link={link} />
             </LinkCardIconContainer>
         </LinkCardRoot>

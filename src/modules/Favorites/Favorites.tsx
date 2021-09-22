@@ -26,7 +26,7 @@ export const Favorites: React.FunctionComponent = () => {
             .where('userId', '==', currentUser.id)
             .where('isFavorite', '==', true)
             .onSnapshot((results) => {
-                if (!results.size) {
+                if (!results) {
                     return
                 }
 
