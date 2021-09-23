@@ -15,21 +15,13 @@ export const Favorites: React.FunctionComponent = () => {
     const [links, setLinks] = React.useState<LinkType[]>([])
     const currentUser = useCurrentUser()
 
-    const fetchFavLinks = () => {
-        if (!currentUser) {
-            return
-        }
-
+    React.useEffect(() => {
         const unsubscribe = firebase
             .firestore()
             .collection(Collections.LINKS)
             .where('userId', '==', currentUser.id)
             .where('isFavorite', '==', true)
             .onSnapshot((results) => {
-                if (!results) {
-                    return
-                }
-
                 const fetchedFavLinks: LinkType[] = []
 
                 results.forEach((result) => {
@@ -44,10 +36,6 @@ export const Favorites: React.FunctionComponent = () => {
         return () => {
             unsubscribe()
         }
-    }
-
-    React.useEffect(() => {
-        fetchFavLinks()
     }, [currentUser?.id])
 
     return (

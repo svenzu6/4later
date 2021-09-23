@@ -16,20 +16,12 @@ export const Dashboard: React.FunctionComponent = () => {
 
     const currentUser = useCurrentUser()
 
-    const fetchLinks = () => {
-        if (!currentUser) {
-            return
-        }
-
+    React.useEffect(() => {
         const unsubscribe = firebase
             .firestore()
             .collection(Collections.LINKS)
             .where('userId', '==', currentUser.id)
             .onSnapshot((results) => {
-                if (!results) {
-                    return
-                }
-
                 const fetchedLinks: LinkType[] = []
 
                 results.forEach((result) => {
@@ -44,10 +36,6 @@ export const Dashboard: React.FunctionComponent = () => {
         return () => {
             unsubscribe()
         }
-    }
-
-    React.useEffect(() => {
-        fetchLinks()
     }, [currentUser?.id])
 
     return (

@@ -7,6 +7,7 @@ import { Dashboard } from '../modules/Dashboard/Dashboard'
 
 const DashboardPage: NextPage = () => {
     return (
+
         <>
             <NextHead>
                 <title>

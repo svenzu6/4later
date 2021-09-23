@@ -15,6 +15,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     height: 100%; 
   }
+  a {
+    color: inherit; 
+    text-decoration: inherit; 
+}
   #__next {
       height: 100%;
   }
