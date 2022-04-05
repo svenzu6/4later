@@ -7,7 +7,6 @@ import Link from 'next/link'
 import React from 'react'
 
 import {
-    HomeBackground,
     HomeContent,
     HomeRoot,
 } from './Home.styles'
