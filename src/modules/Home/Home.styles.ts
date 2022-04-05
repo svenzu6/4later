@@ -14,10 +14,6 @@ export const HomeContent = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 30px;
-    background-image: url('icons/floppy.jpg');
-    background-position: center;
-    background-size: cover;
-   
     position: absolute;
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
