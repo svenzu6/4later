@@ -7,9 +7,6 @@ export const LoginRoot = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('icons/floppy.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
 `
 
 export const LoginContent = styled(Paper)`
