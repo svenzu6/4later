@@ -18,10 +18,6 @@ export const RegisterContent = styled(Paper)`
     justify-content: center;
     align-items: center;
     padding: 30px;
-    background-image: url('icons/floppy.jpg');
-    background-position: start;
-    background-size: cover;
-    position: absolute;
 `
 
 export const RegisterForm = styled.form`
