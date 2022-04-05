@@ -15,7 +15,6 @@ import {
 export const Home: React.FunctionComponent = () => {
     return (
         <HomeRoot>
-            <HomeBackground />
             <HomeContent>
                 <Typography variant="h4">
                     Save your links
